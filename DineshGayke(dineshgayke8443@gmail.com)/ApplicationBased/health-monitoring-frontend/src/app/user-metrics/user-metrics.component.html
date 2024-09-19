@@ -1,0 +1,39 @@
+<mat-card>
+  <form [formGroup]="userIdForm" (ngSubmit)="fetchMetrics()">
+    <mat-form-field>
+      <mat-label>User ID</mat-label>
+      <input matInput formControlName="userId" type="number" required>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Fetch Metrics</button>
+  </form>
+
+  <div *ngIf="metrics.length > 0">
+    <h3>User Metrics:</h3>
+    <table mat-table [dataSource]="metrics">
+
+      <!-- Metric Type Column -->
+      <ng-container matColumnDef="metricType">
+        <th mat-header-cell *matHeaderCellDef> Metric Type </th>
+        <td mat-cell *matCellDef="let metric"> {{ metric.metricType }} </td>
+      </ng-container>
+
+      <!-- Value Column -->
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef> Value </th>
+        <td mat-cell *matCellDef="let metric"> {{ metric.value }} </td>
+      </ng-container>
+
+      <!-- Timestamp Column -->
+      <ng-container matColumnDef="timestamp">
+        <th mat-header-cell *matHeaderCellDef> Timestamp </th>
+        <td mat-cell *matCellDef="let metric"> {{ metric.timestamp }} </td>
+      </ng-container>
+
+      <!-- Header and Row Definitions -->
+      <tr mat-header-row *matHeaderRowDef="['metricType', 'value', 'timestamp']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['metricType', 'value', 'timestamp'];"></tr>
+
+    </table>
+  </div>
+</mat-card>
+

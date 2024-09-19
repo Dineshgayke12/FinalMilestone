@@ -1,0 +1,42 @@
+<mat-card class="metrics-card">
+  <form [formGroup]="metricForm" (ngSubmit)="onSubmit()">
+
+    <!-- User ID Input Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>User ID</mat-label>
+      <input matInput formControlName="userId" type="number" required>
+    </mat-form-field>
+
+    <!-- Metric Type Input Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Metric Type</mat-label>
+      <input matInput formControlName="metricType" placeholder="Enter metric type (e.g., heart rate)" required>
+    </mat-form-field>
+
+    <!-- Value Input Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Value</mat-label>
+      <input matInput formControlName="value" type="number" required>
+    </mat-form-field>
+
+    <!-- Timestamp Field with Calendar Picker -->
+    <mat-form-field appearance="fill">
+      <mat-label>Timestamp</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="timestamp" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Button Wrapper for separate row -->
+    <div class="button-row">
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </div>
+  </form>
+
+  <!-- Submission Status Message -->
+  <div *ngIf="submissionStatus" class="submission-status">
+    {{ submissionStatus }}
+  </div>
+</mat-card>
+
+<app-user-metrics></app-user-metrics>

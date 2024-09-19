@@ -1,0 +1,33 @@
+.metrics-card {
+  padding: 20px;
+  margin: 50px auto;
+  
+  max-width: 600px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 20px; /* Adds space between input fields */
+  margin-left: 30px;
+}
+
+/* Flexbox to align the button on a separate row */
+.button-row {
+  display: flex;
+  justify-content: flex-start; /* Aligns button to the left, change to center if needed */
+  margin-top: 20px; /* Space above the button */
+}
+
+button.mat-raised-button {
+  width: auto; /* You can adjust width if you want a specific button size */
+  background-color: #ff4081; /* Secondary color */
+  color: white;
+  font-weight: bold;
+}
+
+button.mat-raised-button:hover {
+  background-color: #e91e63;
+}
